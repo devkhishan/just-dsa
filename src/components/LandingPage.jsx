@@ -4,9 +4,15 @@ import thumbnail from '../assets/thumbnail.png';
 import leetcodeImg from '../assets/leetcode.png';
 import warrenBuffettImg from '../assets/warren_buffett.png';
 
+const PLAYLIST_VIDEOS = [
+  { id: "Mtza4FJNVww", title: "Video 1" },
+  { id: "ep-8PgVsz7Q", title: "Video 2" },
+  { id: "BHgYbsbcD2s", title: "Video 3" },
+];
+
 export const LandingPage = () => {
   const [activePhaseIndex, setActivePhaseIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isQuoteHovered, setIsQuoteHovered] = useState(false);
   const [isDetailsRevealed, setIsDetailsRevealed] = useState(false);
   const activePhaseData = syllabusData[activePhaseIndex];
@@ -45,24 +51,32 @@ export const LandingPage = () => {
       {/* SECTION 1.5: VIDEO */}
       <section className="video-section">
         <div className="video-wrapper">
-          {!isPlaying ? (
-            <div className="video-thumbnail-overlay" onClick={() => setIsPlaying(true)}>
-              <img src={thumbnail} alt="DSA Course Overview" className="video-thumbnail" />
-              <div className="play-button">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-          ) : (
-            <iframe
-              src="https://www.youtube.com/embed/4rgpmfImvGU?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          )}
+          <iframe
+            src={`https://www.youtube.com/embed/${PLAYLIST_VIDEOS[currentVideoIndex].id}?vq=hd1080`}
+            title={PLAYLIST_VIDEOS[currentVideoIndex].title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="carousel-controls">
+          <button
+            className="carousel-btn"
+            onClick={() => setCurrentVideoIndex(Math.max(0, currentVideoIndex - 1))}
+            disabled={currentVideoIndex === 0}
+          >
+            Previous
+          </button>
+          <span className="carousel-indicator">
+            Video {currentVideoIndex + 1} of {PLAYLIST_VIDEOS.length}
+          </span>
+          <button
+            className="carousel-btn"
+            onClick={() => setCurrentVideoIndex(Math.min(PLAYLIST_VIDEOS.length - 1, currentVideoIndex + 1))}
+            disabled={currentVideoIndex === PLAYLIST_VIDEOS.length - 1}
+          >
+            Next
+          </button>
         </div>
       </section>
 
@@ -155,7 +169,7 @@ export const LandingPage = () => {
           title="Click to reveal Course Details"
         >
           <span className="currency">₹</span>
-          <span className="price">1,999</span>
+          <span className="price">4,999</span>
         </div>
 
         {/* COURSE DETAILS TABLE SECTION (Revealed on click) */}
@@ -171,7 +185,7 @@ export const LandingPage = () => {
                   </tr>
                   <tr>
                     <td><strong>Schedule</strong></td>
-                    <td>1 hour per day</td>
+                    <td>1 hour per day (8 P.M. - 9 P.M. IST)</td>
                   </tr>
                   <tr>
                     <td><strong>Holidays</strong></td>
@@ -210,7 +224,7 @@ export const LandingPage = () => {
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
             </svg>
-            <a href="mailto:contact@venta.code">contact@venta.code</a>
+            <a href="mailto:devkhishan14@icloud.com">devkhishan14@icloud.com</a>
           </p>
         </div>
       </section>
