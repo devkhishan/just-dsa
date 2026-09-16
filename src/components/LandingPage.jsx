@@ -171,7 +171,7 @@ export const LandingPage = () => {
           title="Click to reveal Course Details"
         >
           <span className="currency">₹</span>
-          <span className="price">4,999</span>
+          <span className="price">2,999</span>
         </div>
 
         {/* COURSE DETAILS TABLE SECTION (Revealed on click) */}
