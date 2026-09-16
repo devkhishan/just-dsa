@@ -5,9 +5,11 @@ import leetcodeImg from '../assets/leetcode.png';
 import warrenBuffettImg from '../assets/warren_buffett.png';
 
 const PLAYLIST_VIDEOS = [
-  { id: "Mtza4FJNVww", title: "Video 1" },
-  { id: "ep-8PgVsz7Q", title: "Video 2" },
-  { id: "BHgYbsbcD2s", title: "Video 3" },
+  { id: "LsysIngM-jw", title: "Video 1" },
+  { id: "22HS3NeatBc", title: "Video 2" },
+  { id: "cpvrvYj2GzE", title: "Video 3" },
+  { id: "4BwkBxtbV24", title: "Video 4" },
+  { id: "LdvXa5fMG6E", title: "Video 5" },
 ];
 
 export const LandingPage = () => {
