@@ -194,7 +194,7 @@ export const LandingPage = () => {
         <p className="text-body">Reach out to secure your spot today.</p>
 
         <a
-          href={import.meta.env.VITE_WHATSAPP_LINK}
+          href="https://wa.me/918925124359"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-btn"
